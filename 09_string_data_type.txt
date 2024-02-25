@@ -1,0 +1,160 @@
+>>> chai = 'Masala Chai'
+>>> chai
+'Masala Chai'
+>>> first_char = chai[0]
+>>> print(chai)
+Masala Chai
+>>> print(first_char)
+M  
+>>> slice_chai = chai[0:6]
+>>> print(slice_chai)
+Masala  
+>>> num_list = "0123456789"
+>>> print(num_list)
+0123456789
+>>> num_list[:]
+'0123456789'
+>>> num_list[3:]
+'3456789'
+>>> num_list[:7]
+'0123456'
+>>> num_list[:7:2]
+'0246'
+>>> num_list[0:7:2]
+'0246'
+>>> num_list[-1:-7:-1]
+'987654'
+
+=============================================================================
+
+>>> print(chai)
+Masala Chai
+>>> print(chai.lower())  
+masala chai
+>>> print(chai.upper())
+MASALA CHAI
+>>> print(chai)
+Masala Chai
+
+>>> chai = "    Masala Chai   "
+>>> print(chai)
+    Masala Chai  
+>>> chai
+'    Masala Chai   '
+>>> chai.strip()
+'Masala Chai'
+
+>>> chai = "Lemon chai"
+>>> print(chai.replace("Lemon","Ginger"))
+Ginger chai
+>>> print(chai)        
+Lemon chai
+
+
+# convert from string to list
+
+>>> chai = "Lemon, Ginger, Masala, Mint"
+>>> print(chai.split(","))
+['Lemon', ' Ginger', ' Masala', ' Mint']
+
+
+# finding word in complete string. find method is case sensitive.
+
+>>> chai = "Masal Chai"
+>>> chai = "Masala Chai"
+>>> print(chai.find("chai"))
+-1
+>>> print(chai.find("Chai"))
+7
+
+>>> chai = "Masala chai"
+>>> print("Masala" in chai)
+True
+>>> print("Masalaa" in chai)
+False
+
+# checking the count of particular word in complete sentence.
+
+>>> chai = "Masala chai chai chai"
+>>> print(chai.count("chai"))
+3
+>>> print(chai.count("Chai"))
+0
+
+# placeholders
+
+>>> chai_type = "Masala"
+>>> quantity = 2
+>>> order = "I ordered {} cups of {} chai"
+>>> order
+'I ordered {} cups of {} chai'
+>>> print(order)
+I ordered {} cups of {} chai
+>>> print(order.format(quantity, chai_type))
+I ordered 2 cups of Masala chai
+
+
+# converting list into string from join method.
+
+>>> chai_variety = ["Lemon", "Ginger", "Mint", "Masala"]
+>>> chai_variety
+['Lemon', 'Ginger', 'Mint', 'Masala']
+>>> print("".join(chai_variety))
+LemonGingerMintMasala
+>>> print(" ".join(chai_variety))
+Lemon Ginger Mint Masala
+>>> print("-".join(chai_variety))
+Lemon-Ginger-Mint-Masala
+>>> print(", ".join(chai_variety))
+Lemon, Ginger, Mint, Masala
+
+# finding length of string.
+
+>>> chai = "Masala chai"
+>>> len(chai)
+11
+>>> print(len(chai))
+11
+
+>>> chai
+'Masala chai'
+>>> for letter in chai:
+...   print(letter)
+...
+M
+a
+s
+a
+l
+a
+
+c
+h
+a
+i
+
+
+>>> chai = "He said, \"Masala chai is awesome.\" "
+>>> chai
+'He said, "Masala chai is awesome." '
+>>> chai  = "masala\nchai"
+>>> chai
+'masala\nchai'
+>>> print(chai)
+masala
+chai
+>>> chai = r"Masala\nchai"
+>>> print(chai)
+Masala\nchai
+
+
+>>> chai = r"c:\user\pwd"
+>>> chai
+'c:\\user\\pwd'
+>>> print(chai)
+c:\user\pwd
+>>> chai = "c:\\user\\pwd"
+>>> chai
+'c:\\user\\pwd'
+>>> print(chai)
+c:\user\pwd

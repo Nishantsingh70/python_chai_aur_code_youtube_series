@@ -1,0 +1,179 @@
+>>> import sys
+>>> dir(sys)
+['__breakpointhook__', '__displayhook__', '__doc__', '__excepthook__', '__interactivehook__', '__loader__',
+'__name__', '__package__', '__spec__', '__stderr__', '__stdin__', '__stdout__', '__unraisablehook__',
+'_base_executable', '_clear_type_cache', '_current_exceptions', '_current_frames', '_debugmallocstats',
+ '_enablelegacywindowsfsencoding', '_framework', '_getframe', '_getquickenedcount', '_git', '_home',
+ '_stdlib_dir', '_vpath', '_xoptions', 'addaudithook', 'api_version', 'argv', 'audit', 'base_exec_prefix',
+ 'base_prefix', 'breakpointhook', 'builtin_module_names', 'byteorder', 'call_tracing', 'copyright',
+ 'displayhook', 'dllhandle', 'dont_write_bytecode', 'exc_info', 'excepthook', 'exception', 'exec_prefix',
+ 'executable', 'exit', 'flags', 'float_info', 'float_repr_style', 'get_asyncgen_hooks',
+ 'get_coroutine_origin_tracking_depth', 'get_int_max_str_digits', 'getallocatedblocks', 'getdefaultencoding',
+ 'getfilesystemencodeerrors', 'getfilesystemencoding', 'getprofile', 'getrecursionlimit', 'getrefcount',
+ 'getsizeof', 'getswitchinterval', 'gettrace', 'getwindowsversion', 'hash_info', 'hexversion', 'implementation',
+ 'int_info', 'intern', 'is_finalizing', 'maxsize', 'maxunicode', 'meta_path', 'modules', 'orig_argv', 'path',
+ 'path_hooks', 'path_importer_cache', 'platform', 'platlibdir', 'prefix', 'ps1', 'ps2', 'pycache_prefix',
+ 'set_asyncgen_hooks', 'set_coroutine_origin_tracking_depth', 'set_int_max_str_digits', 'setprofile',
+ 'setrecursionlimit', 'setswitchinterval', 'settrace', 'stderr', 'stdin', 'stdlib_module_names', 'stdout',
+ 'thread_info', 'unraisablehook', 'version', 'version_info', 'warnoptions', 'winver']
+>>> sys.getrefcount(1)
+1000000208
+>>> sys.getrefcount(2)
+1000000127
+>>> sys.getrefcount('1')
+1000000008
+>>> sys.getrefcount('hello')
+3
+
+================================================================
+
+List is mutable. so the reference will change from [1,2,3] to [33,2,3] in both variables. (mylistOne and mylistTwo)
+
+>>> mylistOne = [1,2,3]
+>>> id(mylistOne)
+2233598695424
+>>> mylistOne
+[1, 2, 3]
+>>> mylistTwo = mylistOne
+>>> id(mylistOne)
+2233598695424
+>>> id(mylistTwo)
+2233598695424
+>>> mylistOne[0] = 33
+>>> mylistOne  
+[33, 2, 3]
+>>> id(mylistOne)
+2233598695424
+>>> mylistTwo
+[33, 2, 3]
+>>> id(mylistTwo)
+2233598695424
+
+==============================================================
+
+Every time will create the new reference in list.
+
+>>> mylistOne    
+[33, 2, 3]
+>>> mylistOne = [1,2,3]
+>>> id(mylistOne)      
+2233598694016
+>>> mylistTwo = mylistOne
+>>> id(mylistTwo)
+2233598694016
+>>> mylistTwo = [1,2,3]
+>>> id(mylistTwo)      
+2233598695424
+
+==============================================================
+
+Slicing operator will create the copy of data so no change will apply on that new variable.
+
+>>> h1 = [1,2,3]
+>>> h1
+[1, 2, 3]
+>>> id(h1)
+2233598694208
+>>> h2 = h1[:]
+>>> h2
+[1, 2, 3]
+>>> id(h2)
+2233598692736
+>>> h1[0] = 55
+>>> h1
+[55, 2, 3]
+>>> id(h1)
+2233598694208
+>>> h2
+[1, 2, 3]
+>>> id(h2)
+2233598692736
+
+==============================================================
+
+copy module to copy the data into different variable.
+
+>>> import copy
+>>> h2 = copy.copy(h1)
+>>> id(h1)
+2233598694208
+>>> id(h2)
+2233598473344
+
+>>> import copy
+>>> h1
+[55, 2, 3]
+>>> id(h1)
+2233598694208
+>>> h2 = copy.deepcopy(h1)    # Deepcopy is used when we have nested list.
+>>> h2
+[55, 2, 3]
+>>> id(h2)
+2233598692736
+
+==============================================================
+
+Number is immutable so we can change the reference in one variable but second variable will point the old reference.
+
+>>> x = 5
+>>> y = x
+>>> x
+5
+>>> y
+5
+>>> id(x)
+140734235472808
+>>> id(y)
+140734235472808
+>>> x = x + 2
+>>> id(x)
+140734235472872
+>>> id(y)    
+140734235472808
+>>> x  
+7
+>>> y
+5
+
+==============================================================
+
+If any two variable pointing to the same value then the id will be same for both in numbers.
+
+>>> x = 5
+>>> id(x)
+140734235472808
+>>> y = x
+>>> id(y)
+140734235472808
+>>> y = 5
+>>> id(y)
+140734235472808
+
+================================================================
+
+>>> n = [1,2,3]
+>>> n
+[1, 2, 3]
+>>> id(n)
+2233598473344
+>>> m = n
+>>> m
+[1, 2, 3]
+>>> id(m)
+2233598473344
+>>> m == n
+True
+>>> m is n       # is used to check the object (memory reference.)
+True
+>>>
+>>> m = [1,2,3]
+>>> id(m)
+2233598675712
+>>> id(n)
+2233598473344
+>>> m == n
+True
+>>> m is n      # is used to check the object (memory reference.)
+False
+>>> n is m      # is used to check the object (memory reference.)
+False

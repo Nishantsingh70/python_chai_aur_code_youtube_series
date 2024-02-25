@@ -1,0 +1,60 @@
+>>> tea_types = ("Masala", "Black", "Green", "Oolong")
+>>> print(tea_types)
+('Masala', 'Black', 'Green', 'Oolong')
+>>> tea_types[0]
+'Masala'
+>>> tea_types[-1]
+'Oolong'
+>>> tea_types[1:]
+('Black', 'Green', 'Oolong')
+
+# tuple is immutable so we can't change its value in memory.
+
+>>> tea_types[0] = "Lemon"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+
+
+# finding length of tuple.
+
+>>> print(tea_types)
+('Masala', 'Black', 'Green', 'Oolong')
+>>> len(tea_types)
+4
+
+# creating new tuple from existing tuples.
+
+>>> more_tea = ("Herbal", "Earl Grey")
+>>> print(more_tea)
+('Herbal', 'Earl Grey')
+>>> all_tea = more_tea + tea_types
+>>> print(all_tea)
+('Herbal', 'Earl Grey', 'Masala', 'Black', 'Green', 'Oolong')
+>>> if "Green" in all_tea:
+...     print("I have green tea")
+...
+I have green tea
+
+# checking count of particular word in tuple.
+
+>>> more_tea = ("Herbal", "Green", "Herbal")
+>>> print(more_tea)
+('Herbal', 'Green', 'Herbal')
+>>> more_tea.count("Herbal")
+2
+>>> len(more_tea)
+3
+
+# tuple unrapping
+
+>>> print(tea_types)
+('Masala', 'Black', 'Green', 'Oolong')
+>>> (masala, black, green, oolong) = tea_types
+>>> masala, black, green, oolong
+('Masala', 'Black', 'Green', 'Oolong')
+
+# checking the type of data type.
+
+>>> type(tea_types)
+<class 'tuple'>

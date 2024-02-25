@@ -1,0 +1,124 @@
+# dictionary access from directly and get method.
+
+>>> chai_types = {"Masala": "Spicy", "Ginger": "Zesty", "Green": "Mild"}
+>>> print(chai_types)
+{'Masala': 'Spicy', 'Ginger': 'Zesty', 'Green': 'Mild'}
+>>> chai_types["Masala"]
+'Spicy'
+>>> chai_types.get("Masala")
+'Spicy'
+>>> chai_types["Masalaa"]    
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'Masalaa'
+>>> chai_types.get("Masalaa")
+
+# Update the values in dictionary.
+
+>>> chai_types["Green"] = "Fresh"
+>>> print(chai_types)
+{'Masala': 'Spicy', 'Ginger': 'Zesty', 'Green': 'Fresh'}
+
+# applying loop
+
+>>> for chai in chai_types:
+...     print(chai)
+...
+Masala
+Ginger
+Green
+>>> for chai in chai_types:
+...     print(chai, chai_types[chai])
+...
+Masala Spicy
+Ginger Zesty
+Green Fresh
+
+# printing key value pair together.
+
+>>> for key, value in chai_types.items():
+...     print(key, value)
+...
+Masala Spicy
+Ginger Zesty
+Green Fresh
+
+>>> if "Masala" in chai_types:
+...     print("I have Masala chai")
+...
+I have Masala chai
+
+# calculate length of dictionary.
+
+>>> print(len(chai_types))
+3
+
+# add new key value in dictionary.
+
+>>> chai_types["Earl Grey"] = "Citrus"
+>>> print(chai_types)
+{'Masala': 'Spicy', 'Ginger': 'Zesty', 'Green': 'Fresh', 'Earl Grey': 'Citrus'}
+
+# remove key value from dictionary by pop, popitem methods and del keyword.
+
+>>> chai_types.pop("Green")
+'Fresh'
+>>> print(chai_types)      
+{'Masala': 'Spicy', 'Ginger': 'Zesty', 'Earl Grey': 'Citrus'}
+>>> chai_types.popitem()
+('Earl Grey', 'Citrus')
+>>> print(chai_types)    
+{'Masala': 'Spicy', 'Ginger': 'Zesty'}
+
+>>> del chai_types["Masala"]
+>>> print(chai_types)        
+{'Ginger': 'Zesty'}
+
+# create copy from dictionary (create new reference)
+
+>>> chai_types_copy = chai_types.copy()
+>>> chai_types_copy
+{'Ginger': 'Zesty'}
+
+# Nested dictionary
+
+>>> tea_shop = { "chai": {"Masala": "Spicy", "Ginger": "Zesty"}, "tea": {"Green": "Mild", "Black": "Strong"}}
+>>> print(tea_shop)
+{'chai': {'Masala': 'Spicy', 'Ginger': 'Zesty'}, 'tea': {'Green': 'Mild', 'Black': 'Strong'}}
+>>> tea_shop["chai"]
+{'Masala': 'Spicy', 'Ginger': 'Zesty'}
+>>> tea_shop["chai"]["Ginger"]
+'Zesty'
+>>>
+>>> tea_shop.get('chai')
+{'Masala': 'Spicy', 'Ginger': 'Zesty'}
+
+
+# squared number
+
+>>> squared_num = {x:x**2 for x in range(10)}
+>>> print(squared_num)
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+
+# to clear complete dictionary data
+
+>>> squared_num.clear()
+>>> print(squared_num)  
+{}
+
+# create new dictionary from one array(list) and from one default value.
+
+>>> keys = ["Masala", "Lemon", "Ginger"]
+>>> print(keys)
+['Masala', 'Lemon', 'Ginger']
+>>> default_value = "Delicious"
+>>> new_dict = dict.fromkeys(keys, default_value)
+>>> print(new_dict)
+{'Masala': 'Delicious', 'Lemon': 'Delicious', 'Ginger': 'Delicious'}
+
+# Issue with creating the dictionary from two array(list).
+
+>>> new_dict = dict.fromkeys(keys, keys)          
+>>> print(new_dict)
+{'Masala': ['Masala', 'Lemon', 'Ginger'], 'Lemon': ['Masala', 'Lemon', 'Ginger'],
+'Ginger': ['Masala', 'Lemon', 'Ginger']}

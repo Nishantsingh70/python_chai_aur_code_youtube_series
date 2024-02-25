@@ -1,0 +1,226 @@
+>>> x = 2
+>>> y = 3
+>>> z = 4
+>>>
+>>>
+>>> x + y
+5  
+>>> 40 + 2.23
+42.23
+>>> int(2.23)
+2  
+>>> float(40)
+40.0
+>>> 40 + int(2.23)
+42
+>>> x, y, z
+(2, 3, 4)
+>>>
+>>> x + 2, y * 2
+(4, 6)
+>>> y % x
+1
+>>> y % 1
+0
+>>> z ** 2
+16
+>>> 2 ** 100
+1267650600228229401496703205376
+>>> 2 ** 1000
+10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376
+
+>>> result = 1/3.0
+>>> result
+0.3333333333333333
+
+==================================================================
+
+Find the difference among these 3.
+
+>>> repr('chai')
+"'chai'"
+>>> str('chai')
+'chai'
+>>> print('chai')
+chai
+
+repr():
+It returns a string that represents a printable version of an object.
+The goal of repr() is to be unambiguous. It is meant to include details about the object that
+    help in identifying the object or recreating it.
+For example, repr('chai') returns "'chai'", indicating that ‘chai’ is a string.
+
+str():
+It returns a string version of an object.
+The goal of str() is to be readable. It is meant for display to end-users.
+For example, str('chai') returns 'chai', which is more user-friendly than the repr() version.
+
+print():
+It is a function that prints the specified message to the screen (or other standard output device).
+The message can be a string, or any other object, the object will be converted into a string before being
+   written to the screen.
+For example, print('chai') simply outputs chai to the console.
+
+In summary, repr() is for developers and debugging (as it includes more details and is more precise),
+str() is for end users (as it is more readable), and print() is a way to output information to the console.
+
+===============================================================
+
+>>> 1 < 2
+True
+>>> 5 == 5.0
+True
+>>> 4.0 != 5.0
+True
+
+
+>>> x ,y ,z
+(2, 3, 4)
+>>> x < y < z
+True
+>>> x < y and y < z
+True
+>>> 1 == 2 < 3
+False
+>>> 1 == 2 and 2 < 3
+False
+>>> 1 == 2 or 2 < 3  
+True
+
+
+>>> import math
+>>> math.floor(3.5)
+3
+>>> math.floor(-3.5)
+-4
+>>> math.floor(-3.9)
+-4
+>>> math.floor(3.9)  
+3  
+>>> math.trunc(2.8)         # trunc will move you towards 0.
+2
+>>> math.trunc(-2.8)        # trunc will move you towards 0. that's why answer is -2.
+-2
+
+# complex numbers:
+
+>>> 2 + 3j
+(2+3j)
+>>> (2 + 3j) * 4
+(8+12j)
+
+
+>>> 0o20
+16
+>>> 0xFF
+255
+>>> 0b10001
+17
+>>> oct(9)
+'0o11'
+>>> hex(20)
+'0x14'
+>>> oct(20)
+'0o24'
+>>> bin(20)
+'0b10100'
+>>> int(64)
+64
+>>> int('64', 8)  
+52
+>>> int('20', 8 )  
+16
+
+
+>>> x = 1
+>>> x << 2
+4
+>>> x << 3
+8
+
+======================================================================
+
+# random module
+
+>>> import random
+>>> random.random()
+0.07603072572776393
+>>> random.random()
+0.7539589100207543
+>>> random.random()
+0.16327817032843606
+>>> random.random()
+0.3015631167980546
+
+>>> random.randint(1, 20)
+8
+>>> random.randint(1, 20)
+6
+>>> random.randint(1, 20)
+14
+>>> random.randint(1, 20)
+3
+
+>>> l1 = ['Lemon tea', 'Mint tea', 'Masala chai', 'Ginger tea']
+>>> l1
+['Lemon tea', 'Mint tea', 'Masala chai', 'Ginger tea']
+>>> random.choice(l1)
+'Masala chai'
+>>> random.choice(l1)
+'Lemon tea'
+>>> random.choice(l1)
+'Mint tea'
+>>> random.choice(l1)
+'Ginger tea'
+
+>>> random.shuffle(l1)
+>>> l1
+['Masala chai', 'Lemon tea', 'Ginger tea', 'Mint tea']
+>>> random.shuffle(l1)
+>>> l1                
+['Mint tea', 'Lemon tea', 'Ginger tea', 'Masala chai']
+
+
+# Decimal context manager
+
+>>> 0.1 + 0.1 + 0.1
+0.30000000000000004
+>>> 0.1 + 0.1 + 0.1 - 0.3
+5.551115123125783e-17
+>>> from decimal import Decimal
+>>> Decimal('0.1') + Decimal('0.1') + Decimal('0.1')
+Decimal('0.3')
+>>> Decimal('0.1') + Decimal('0.1') + Decimal('0.1') - Decimal('0.3')
+Decimal('0.0')
+
+=========================================================
+
+# set
+
+>>> setOne = {1,2,3}
+>>> setOne
+{1, 2, 3}
+>>> setOne & {1,4,3}
+{1, 3}
+>>> setOne | {1,4,3, 5}
+{1, 2, 3, 4, 5}
+>>> setOne - {1,2,3}         # we will not receive empty {} because it represents a dictionary.
+set()
+>>> type({})
+<class 'dict'>
+
+
+========================================================
+
+# Boolean: True treat as 1 and False treat as 0.
+
+>>> type(False)
+<class 'bool'>
+>>> type(True)
+<class 'bool'>
+>>> True == 1
+True
+>>> False == 0
+True
+>>> True + 3
+4

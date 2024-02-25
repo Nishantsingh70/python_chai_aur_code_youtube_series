@@ -1,0 +1,122 @@
+>>> tea_varieties = ["Black", "Green", "Oolong", "White"]  
+>>> print(tea_varieties)
+['Black', 'Green', 'Oolong', 'White']
+>>> print(tea_varieties[0])
+Black
+>>> print(tea_varieties[2])
+Oolong
+>>> print(tea_varieties[0:2])
+['Black', 'Green']
+
+# Replacing list values normally and with slice operator.
+
+>>> tea_varieties[3] = "Herbal"
+>>> print(tea_varieties)
+['Black', 'Green', 'Oolong', 'Herbal']
+>>> tea_varieties[1:2] = ["Lemon"]
+>>> print(tea_varieties)
+['Black', 'Lemon', 'Oolong', 'Herbal']
+
+>>> tea_varieties[1:3]        
+['Lemon', 'Oolong']
+>>> tea_varieties[1:3] = ["green", "Masala"]  
+>>> print(tea_varieties)
+['Black', 'green', 'Masala', 'Herbal']
+
+
+>>> tea_varieties[1:1]  
+[]
+>>> print(tea_varieties)
+['Black', 'test1', 'test2', 'green', 'Masala', 'Herbal']
+>>> tea_varieties[1:3]                      
+['test1', 'test2']
+>>> tea_varieties[1:3] = []                             # Delete operation
+>>> print(tea_varieties)    
+['Black', 'green', 'Masala', 'Herbal']
+
+>>> print(tea_varieties)      
+['Black', 'green', 'Masala', 'Herbal']
+>>> for tea in tea_varieties:
+...     print(tea, end=" ")                            # print statement options.
+...
+Black green Masala Herbal
+
+# append method
+
+>>> print(tea_varieties)      
+['Black', 'green', 'Masala', 'Herbal']
+>>> tea_varieties.append("Oolong")  
+>>> print(tea_varieties)            
+['Black', 'green', 'Masala', 'Herbal', 'Oolong']
+>>> if "Oolong" in tea_varieties:
+...     print("I have Oolong tea")
+...
+I have Oolong tea
+
+
+# pop & remove method
+
+>>> tea_varieties.pop()
+'Oolong'
+>>> print(tea_varieties)
+['Black', 'green', 'Masala', 'Herbal']
+>>> tea_varieties.remove("green")
+>>> print(tea_varieties)
+['Black', 'Masala', 'Herbal']
+
+
+# Insert method
+
+>>> tea_varieties.insert(1, "green")
+>>> print(tea_varieties)
+['Black', 'green', 'Masala', 'Herbal']
+
+
+>>> print(tea_varieties)
+['Black', 'green', 'Masala', 'Herbal']
+>>> tea_varieties_copy = tea_varieties
+>>> id(tea_varieties)
+2606652873600
+>>> id(tea_varieties_copy)
+2606652873600
+>>> tea_varieties_copy.pop()
+'Herbal'
+>>> print(tea_varieties_copy)
+['Black', 'green', 'Masala']
+>>> print(tea_varieties)      
+['Black', 'green', 'Masala']
+>>>
+>>>
+>>> id(tea_varieties_copy)    
+2606652873600
+>>> id(tea_varieties)      
+2606652873600
+
+# create new reference in memory from copy and deepcopy methods.
+
+>>> tea_varieties_copy = tea_varieties.copy()
+>>> id(tea_varieties)
+2606652873600
+>>> id(tea_varieties_copy)
+2606652871232
+>>> tea_varieties_copy.pop()  
+'Masala'
+>>> print(tea_varieties)
+['Black', 'green', 'Masala']
+>>> print(tea_varieties_copy)
+['Black', 'green']
+
+>>> squared_number = ["a", "b"]
+>>> squared_number_2 = squared_number * 2
+>>> print(squared_number_2)
+['a', 'b', 'a', 'b']
+
+
+# List comprehension
+
+>>> squared_nums = [x**2 for x in range(10)]
+>>> print(squared_nums)
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> cube_nums = [y**3 for y in range(5)]
+>>> print(cube_nums)
+[0, 1, 8, 27, 64]

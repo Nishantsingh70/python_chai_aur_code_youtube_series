@@ -1,0 +1,242 @@
+We have 3 things in loops:
+  1) Iteration tool (for, comprehension)
+  2) Iterable objects (lists, file)
+  3) __next__/ next() (response)
+
+So Iteration tool always ask to iterable objects that we can apply the loop on the object and if iterable object
+   is iterable then it will return the response in __next__ and also shared the first(starting) element
+   memory location.
+
+__next__/ next() will help us to check that particular iterable object have values then you can perform iteration on that.
+         and in last when object have no value then we got one exception from __next__ keyword.
+
+readline() => also iterable tool it read the file line by line and in the end when file ends then python handle the
+             exception very good way. Behind the scene readline() uses the next()/__next__ keyword/function only.
+
+
+>>> f = open('chai.py')
+>>> id(f)
+2411104681680
+>>> f
+<_io.TextIOWrapper name='chai.py' mode='r' encoding='cp1252'>
+>>> f.readline()
+'import time\n'
+>>> f.readline()
+'print("Chai is here")\n'
+>>> f.readline()
+'username = "Nishant"\n'
+>>> f.readline()
+'print(username)'
+>>> f.readline()
+''  
+
+# __next__ is a raw method to show line one by one & it give the exception in last.
+
+>>> f = open('chai.py')
+>>> f
+<_io.TextIOWrapper name='chai.py' mode='r' encoding='cp1252'>
+>>> f.__next__()
+'import time\n'
+>>> f.__next__()
+'print("Chai is here")\n'
+>>> f.__next__()
+'username = "Nishant"\n'
+>>> f.__next__()
+'print(username)'
+>>> f.__next__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+
+
+# for loop on file
+
+>>> f = open('chai.py')
+>>> for line in f.readlines()  => This is very much costly operation that is why we don't use it.
+>>> for line in f:          
+...     print(line)
+...
+import time
+
+print("Chai is here")
+
+username = "Nishant"
+
+print(username)
+
+>>> f = open('chai.py')
+>>> for line in f:
+...     print(line, end='')
+...
+import time
+print("Chai is here")
+username = "Nishant"
+print(username)>>>
+
+
+# while loop on file
+
+>>> f = open('chai.py')
+>>> while True:      
+...     line = f.readline()
+...     if not line: break  
+...     print(line, end='')
+...
+import time
+print("Chai is here")
+username = "Nishant"
+print(username)>>>
+
+
+# if not concept
+
+>>> test = "nishant"
+>>> if not test:
+...     print("chai")
+...
+
+>>> test=""
+>>> if not test:
+...     print("chai")
+...
+chai
+
+
+# iteration in list (array)
+
+We have iter method which will give starting address of any iterable object where we are applying iteration.
+
+>>> myList = [1,2,3,4]
+>>> I = iter(myList)
+>>> I
+<list_iterator object at 0x000002224E3A2170>
+>>> I.__next__()
+1
+>>> I.__next__()
+2
+>>> I.__next__()
+3
+>>> I.__next__()
+4
+>>> I.__next__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+>>> I
+<list_iterator object at 0x000002224E3A2170>
+
+Here I is refering the same starting address of the iterable object.
+
+# file => it will perform the iter() method already in file.
+
+>>> f = open('chai.py')
+>>> f  
+<_io.TextIOWrapper name='chai.py' mode='r' encoding='cp1252'>
+>>> iter(f)
+<_io.TextIOWrapper name='chai.py' mode='r' encoding='cp1252'>
+>>> iter(f) is f
+True
+>>> iter(f) is f.__iter__()
+True
+
+# list (array) => We have to perform iter in the list.
+
+>>> myNewList = [1,2,3]
+>>> iter(myNewList)
+<list_iterator object at 0x000002224E3A2D70>
+>>> I = iter(myNewList)
+>>> iter(myNewList) is myNewList
+False
+
+Conclusion: If we take the reference of any file into any variable then that variable is already a iterable object.
+            but if we take the reference of any list into any variable then that variable is not
+            a iterable object of that list.
+
+
+
+# Iteration in dictionary
+
+>>> D = {'a': 1, 'b': 2}
+>>> D
+{'a': 1, 'b': 2}
+>>> for key in D.keys():
+...     print(key)
+...
+a
+b
+>>> for value in D.values():
+...     print(value)
+...
+1
+2
+
+
+>>> I = iter(D)
+>>> I
+<dict_keyiterator object at 0x000002224E580D60>
+>>> I.__next__()
+'a'
+>>> I.__next__()
+'b'
+>>> I.__next__()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+
+
+
+# Range is iterable so try iter and next on that also.
+
+>>> R = range(0, 3)  
+>>> I = iter(R)
+>>> I
+<range_iterator object at 0x000002224E37E2D0>
+>>> next(I)
+0
+>>> next(I)
+1
+>>> next(I)
+2
+>>> next(I)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+
+
+# iteration in string.
+
+>>> a = "nishant"
+>>> R = iter(a)  
+>>> R
+<str_ascii_iterator object at 0x000002224E3A2170>
+>>> next(R)
+'n'
+>>> next(R)
+'i'
+>>> next(R)
+'s'
+>>> next(R)
+'h'
+>>> next(R)
+'a'
+>>> next(R)
+'n'
+>>> next(R)
+'t'
+>>> next(R)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+
+
+# iteration in number. (number is not iterable that why they give exception.)
+
+>>> a = 1
+>>> a
+1
+>>> R = iter(a)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not iterable
+
+

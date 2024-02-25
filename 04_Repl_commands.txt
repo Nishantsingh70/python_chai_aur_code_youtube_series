@@ -1,0 +1,7 @@
+import os
+
+os.getcwd() => 'C:\\Users\\Nishant Singh\\Desktop\\Codes, resume, Important PDFs and documents\\Codes\\Python_chai_aur_code'
+
+import sys
+
+sys.platform => 'win32'

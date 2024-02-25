@@ -1,0 +1,103 @@
+# Number :
+
+>>> import math
+>>> math.pi
+3.141592653589793
+
+>>> import random
+>>> dir(random)
+
+>>> random.random()
+    0.6304560470727625
+
+>>> random.choice([1,2,3,4,5])
+2
+>>> random.choices([1,2,3,4,5])
+[4]
+
+# String :
+
+>>> username = "chaiaurcode"
+>>> username
+'chaiaurcode'
+>>> len(username)
+11
+>>> username[0]
+'c'
+
+>>> username[0] = 'A'                (We can not do this because string is immutable in nature.)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+
+>>> username[-1]
+'e'
+
+>>> username[1:4]  
+'hai'
+
+>>> dir(username)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__',
+'__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__',
+'__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__',
+'__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__',
+'__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__',
+'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format',
+'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier',
+'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower',
+'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 'replace', 'rfind', 'rindex',
+'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip',
+'swapcase', 'title', 'translate', 'upper', 'zfill']
+
+# List:
+
+>>> mylist = [123, "chai", 3.14]
+>>> mylist
+[123, 'chai', 3.14]
+>>> len(mylist)
+3
+>>> mylist[-1]
+3.14
+>>> mylist[0]
+123
+>>> dir(mylist)
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__',
+'__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__',
+'__getstate__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__',
+'__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__',
+'__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__',
+'__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend',
+'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+
+
+# Dictionary:
+
+>>> mydic = {'one': 'lemon', "two": "ginger tea", 'three': "tea", "four": 'masala chai' }                        
+>>> mydic
+{'one': 'lemon', 'two': 'ginger tea', 'three': 'tea', 'four': 'masala chai'}
+>>> len(mydic)
+4
+>>> mydic[one]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'one' is not defined. Did you mean: 'None'?
+>>> mydic['one']
+'lemon'
+>>> mydic['two']
+'ginger tea'
+
+# Tuple :
+
+>>> myTup = (1, 2, 4)
+>>> myTup[0]
+1
+>>> len(myTup)
+3
+>>> myTup[2]  
+4
+>>> dir(myTup)
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__dir__', '__doc__',
+'__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__',
+'__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__',
+'__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__',
+'__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
